@@ -34,3 +34,12 @@ class Snake:
         elif self.direction == "down": self.head.setheading(270)
         elif self.direction == "left": self.head.setheading(180)
         elif self.direction == "right": self.head.setheading(0)
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        self.direction = "stop"
+        self.head.goto(0, 0)
